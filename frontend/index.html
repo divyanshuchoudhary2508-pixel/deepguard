@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepGuard | Explainable Digital Image Verification Prototype</title>
+    <meta name="description" content="Explainable Deepfake Image Verification Prototype powered by Xception Neural Network and Grad-CAM activation mapping. Based on IEEE TENCON 2024 research.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background glow elements -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <div class="logo-icon">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>DEEPGUARD</h1>
+                    <span>EXPLAINABLE IMAGE VERIFICATION</span>
+                </div>
+            </div>
+            
+            <div class="header-pills">
+                <div class="paper-pill" title="Based on IEEE TENCON 2024 Research Paper">
+                    <i data-lucide="book-open"></i>
+                    <span>IEEE TENCON 2024 Paper</span>
+                </div>
+                <div class="status-pill" id="system-status">
+                    <span class="status-dot"></span>
+                    <span id="status-text">Checking Server...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+
+            <!-- Hero Section -->
+            <section class="hero-section" id="hero-section">
+                <div class="hero-badge">
+                    <i data-lucide="sparkles"></i> AI Explainability & Verification Prototype
+                </div>
+                <h2 class="hero-title">Verify Synthetic & Manipulated Media with Neural Attention</h2>
+                <p class="hero-subtitle">
+                    DeepGuard detects synthetic manipulations using paper-aligned Xception deep learning and visualizes neural model attention with <strong>Grad-CAM heatmaps</strong>.
+                </p>
+            </section>
+
+            <!-- Upload & Input Container -->
+            <section class="input-card" id="input-section">
+                <!-- Dropzone -->
+                <div class="dropzone" id="dropzone">
+                    <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/bmp" hidden>
+                    <div class="dropzone-icon">
+                        <i data-lucide="upload-cloud"></i>
+                    </div>
+                    <h3>Drag & Drop Image Here</h3>
+                    <p>or <button class="btn-link" id="browse-btn">browse file</button> from your computer</p>
+                    <div class="file-types">Supported formats: JPG, PNG, WEBP, BMP (Max 15MB)</div>
+                </div>
+
+                <!-- Samples Showcase -->
+                <div class="samples-container">
+                    <div class="samples-header">
+                        <span><i data-lucide="zap"></i> Or Quick Test Built-in Samples:</span>
+                    </div>
+                    <div class="samples-grid" id="samples-grid">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analysis Loading State -->
+            <section class="loading-card hidden" id="loading-section">
+                <div class="spinner-container">
+                    <div class="pulse-ring"></div>
+                    <div class="neural-spinner">
+                        <i data-lucide="cpu"></i>
+                    </div>
+                </div>
+                <h3 id="loading-title">Analyzing Image Content</h3>
+                <p id="loading-subtitle">Running Xception tensor inference & computing Grad-CAM activation maps...</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="loading-steps">
+                    <div class="step active" id="step-1"><i data-lucide="check-circle-2"></i> Tensor Preprocessing (224x224)</div>
+                    <div class="step" id="step-2"><i data-lucide="loader-2"></i> Xception Model Inference</div>
+                    <div class="step" id="step-3"><i data-lucide="circle"></i> Grad-CAM Activation Extraction</div>
+                </div>
+            </section>
+
+            <!-- Result & Explanation View -->
+            <section class="result-card hidden" id="result-section">
+
+                <!-- Header Result Badge -->
+                <div class="result-header">
+                    <div class="result-badge" id="result-badge">
+                        <div class="badge-icon" id="badge-icon"><i data-lucide="shield-alert"></i></div>
+                        <div class="badge-info">
+                            <span class="badge-sub">MODEL ASSESSMENT</span>
+                            <h2 id="result-label">LIKELY DEEPFAKE</h2>
+                        </div>
+                    </div>
+
+                    <div class="score-card">
+                        <div class="score-circle" id="score-circle">
+                            <span class="score-value" id="score-value">94.2%</span>
+                            <span class="score-lbl">CONFIDENCE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explanation Banner -->
+                <div class="explanation-alert">
+                    <div class="alert-icon"><i data-lucide="info"></i></div>
+                    <div class="alert-content">
+                        <strong>Grad-CAM Visual Explanation:</strong>
+                        <span>Highlighted regions show areas of highest neural network activation/attention during classification. This map visualizes model decision cues for human review.</span>
+                    </div>
+                </div>
+
+                <!-- Visual Comparison Canvas / Overlay Slider -->
+                <div class="comparison-container">
+                    <div class="comparison-controls">
+                        <div class="control-group">
+                            <label><i data-lucide="layers"></i> Overlay Opacity:</label>
+                            <input type="range" id="opacity-slider" min="0" max="100" value="70">
+                            <span id="opacity-val">70%</span>
+                        </div>
+                        <div class="view-toggle">
+                            <button class="toggle-btn active" id="mode-overlay-btn"><i data-lucide="activity"></i> Grad-CAM</button>
+                            <button class="toggle-btn" id="mode-mesh-btn"><i data-lucide="box"></i> Facial Mesh</button>
+                            <button class="toggle-btn" id="mode-split-btn"><i data-lucide="columns"></i> Side-by-Side</button>
+                        </div>
+                    </div>
+
+                    <!-- Overlay View -->
+                    <div class="interactive-viewer" id="viewer-overlay">
+                        <div class="image-wrapper">
+                            <img src="" id="img-original" alt="Original Input Image">
+                            <img src="" id="img-heatmap-overlay" alt="Grad-CAM Heatmap Overlay" class="heatmap-layer">
+                            <img src="" id="img-mesh-overlay" alt="Facial Landmark Mesh Overlay" class="heatmap-layer hidden">
+                        </div>
+                        <div class="viewer-legend" id="viewer-legend">
+                            <span class="legend-item"><span class="legend-box low"></span> Low Attention</span>
+                            <span class="legend-item"><span class="legend-box med"></span> Medium Focus</span>
+                            <span class="legend-item"><span class="legend-box high"></span> High Neural Activation</span>
+                        </div>
+                    </div>
+
+                    <!-- Side-by-side View -->
+                    <div class="split-viewer hidden" id="viewer-split">
+                        <div class="split-pane">
+                            <div class="pane-title"><i data-lucide="image"></i> Original Image</div>
+                            <img src="" id="img-split-orig" alt="Original Input">
+                        </div>
+                        <div class="split-pane">
+                            <div class="pane-title"><i data-lucide="activity"></i> Grad-CAM Attention Map</div>
+                            <img src="" id="img-split-heat" alt="Grad-CAM Heatmap">
+                        </div>
+                        <div class="split-pane">
+                            <div class="pane-title"><i data-lucide="box"></i> 68-Point Mesh Wireframe</div>
+                            <img src="" id="img-split-mesh" alt="Facial Mesh">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multi-Signal Forensic Details Section -->
+                <div class="forensic-grid">
+                    <!-- EXIF & C2PA Card -->
+                    <div class="forensic-card">
+                        <div class="card-header">
+                            <i data-lucide="file-search"></i>
+                            <span>EXIF & Digital Signature Inspection</span>
+                            <span class="badge-risk" id="exif-risk-badge">STRIPPED</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row">
+                                <label>Camera Device:</label>
+                                <span id="exif-camera">Unknown / None</span>
+                            </div>
+                            <div class="info-row">
+                                <label>Processing Software:</label>
+                                <span id="exif-software">None detected</span>
+                            </div>
+                            <div class="info-row">
+                                <label>C2PA Content Credentials:</label>
+                                <span id="exif-c2pa">Not Signed</span>
+                            </div>
+                            <div class="info-row">
+                                <label>AI Generator Signatures:</label>
+                                <span id="exif-ai-sig">None</span>
+                            </div>
+                            <div class="info-note" id="exif-explanation">
+                                Metadata stripped or absent (common in social media uploads).
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 68-Point Facial Landmark Geometry Card -->
+                    <div class="forensic-card">
+                        <div class="card-header">
+                            <i data-lucide="smile"></i>
+                            <span>Facial Mesh & Geometry Analysis</span>
+                            <span class="badge-risk ok" id="landmark-badge">FACE MESH OK</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row">
+                                <label>Face Mesh Points:</label>
+                                <span id="lm-count">468 3D Landmarks</span>
+                            </div>
+                            <div class="info-row">
+                                <label>Eye Symmetry Ratio:</label>
+                                <span id="lm-eye-sym">0.98 (Normal)</span>
+                            </div>
+                            <div class="info-row">
+                                <label>Jawline Warp Index:</label>
+                                <span id="lm-jaw-warp">0.04 (Smooth)</span>
+                            </div>
+                            <div class="info-note" id="lm-status">
+                                Face mesh successfully extracted.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Human Feedback & Active Learning Card -->
+                <div class="feedback-card" id="feedback-card">
+                    <div class="feedback-header">
+                        <i data-lucide="message-square-plus"></i>
+                        <span>Human-in-the-Loop Active Learning Feedback</span>
+                    </div>
+                    <div class="feedback-body">
+                        <p class="feedback-prompt">Was this model assessment accurate?</p>
+                        <div class="feedback-btn-group">
+                            <button class="btn-fb btn-fb-agree" id="fb-agree-btn">
+                                <i data-lucide="thumbs-up"></i> Yes, Correct
+                            </button>
+                            <button class="btn-fb btn-fb-disagree" id="fb-disagree-btn">
+                                <i data-lucide="thumbs-down"></i> No, Incorrect (Override & Teach Model)
+                            </button>
+                        </div>
+                        <div class="feedback-toast hidden" id="fb-toast">
+                            <i data-lucide="check-circle-2"></i>
+                            <span id="fb-toast-msg">Feedback saved! Active learning store updated for future runs.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="result-actions">
+                    <button class="btn btn-secondary" id="reset-btn">
+                        <i data-lucide="rotate-ccw"></i> Analyze Another Image
+                    </button>
+                    <button class="btn btn-secondary" id="download-pdf-btn">
+                        <i data-lucide="download"></i> Download PDF Report
+                    </button>
+                    <button class="btn btn-primary" id="view-report-btn">
+                        <i data-lucide="file-text"></i> View Verification Summary
+                    </button>
+                </div>
+
+
+
+            </section>
+
+        </main>
+
+        <!-- Verification Summary Report Modal -->
+        <div class="modal-backdrop hidden" id="report-modal">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <i data-lucide="file-check-2"></i>
+                        <span>Verification Summary Report</span>
+                    </div>
+                    <button class="modal-close" id="close-modal-btn"><i data-lucide="x"></i></button>
+                </div>
+
+                <div class="report-body" id="report-body">
+                    <!-- Report Header -->
+                    <div class="rep-header-block">
+                        <div class="rep-logo">
+                            <h2>DEEPGUARD FORENSIC SUMMARY</h2>
+                            <p>Paper2Prototype 2026 | IEEE TENCON 2024 Reference</p>
+                        </div>
+                        <div class="rep-meta">
+                            <div><strong>Report ID:</strong> <span id="rep-id">DG-2026-9812</span></div>
+                            <div><strong>Timestamp:</strong> <span id="rep-time">2026-09-11 23:00 UTC</span></div>
+                        </div>
+                    </div>
+
+                    <div class="rep-grid">
+                        <div class="rep-col">
+                            <div class="rep-item">
+                                <label>Analyzed File:</label>
+                                <span id="rep-filename">upload.jpg</span>
+                            </div>
+                            <div class="rep-item">
+                                <label>Detection Model:</label>
+                                <span id="rep-model">Xception (DeepFake-Detection Baseline)</span>
+                            </div>
+                            <div class="rep-item">
+                                <label>Paper Benchmark:</label>
+                                <span>FaceForensics++ (97.52% Accuracy)</span>
+                            </div>
+                        </div>
+                        <div class="rep-col">
+                            <div class="rep-result-box" id="rep-result-box">
+                                <span class="rep-lbl">CLASSIFICATION RESULT</span>
+                                <h3 id="rep-label">LIKELY DEEPFAKE</h3>
+                                <span class="rep-score">Model Confidence: <strong id="rep-conf">94.2%</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Images preview in report -->
+                    <div class="rep-images">
+                        <div class="rep-img-box">
+                            <span>Input Image</span>
+                            <img src="" id="rep-img-orig" alt="Input">
+                        </div>
+                        <div class="rep-img-box">
+                            <span>Grad-CAM Attention Map</span>
+                            <img src="" id="rep-img-heat" alt="GradCAM">
+                        </div>
+                    </div>
+
+                    <div class="rep-disclaimer">
+                        <i data-lucide="shield-info"></i>
+                        <p id="rep-disclaimer-text">
+                            This report provides AI-assisted verification based on neural network feature activation (Grad-CAM). It serves as an explainability screening tool and does not constitute certified legal or forensic proof.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="modal-close-btn">Close</button>
+                    <button class="btn btn-primary" id="modal-download-pdf-btn">
+                        <i data-lucide="file-down"></i> Download PDF Report
+                    </button>
+                    <button class="btn btn-secondary" id="print-report-btn">
+                        <i data-lucide="printer"></i> Print View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>DeepGuard Prototype &copy; 2026 | Built on top of IEEE TENCON 2024 Research & Xception Architecture</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

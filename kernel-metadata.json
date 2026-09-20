@@ -1,0 +1,18 @@
+{
+  "id": "divyanshuchoudhary25/deepguard-densenet121-t4x2",
+  "title": "DeepGuard DenseNet121 T4x2",
+  "code_file": "DeepGuard_Kaggle_T4x2_Training.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "false",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "accelerator": "gpu_t4_x2",
+  "dataset_sources": [
+    "manjilkarki/deepfake-and-real-images",
+    "dagnelies/deepfake-faces"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

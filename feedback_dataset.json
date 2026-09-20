@@ -1,0 +1,169 @@
+{
+  "feedback_entries": {
+    "ce28ead7fbba3c687611688d2e473405d4ccddd384cd3f74b69a2e90e8088ecd": {
+      "filename": "upload_452b7ec59d.jpg",
+      "hash": "ce28ead7fbba3c687611688d2e473405d4ccddd384cd3f74b69a2e90e8088ecd",
+      "predicted_label": "LIKELY DEEPFAKE (VERIFIED HUMAN FEEDBACK)",
+      "user_agrees": true,
+      "final_verified_label": "LIKELY DEEPFAKE (VERIFIED HUMAN FEEDBACK)",
+      "timestamp": "2026-09-11 19:31:39 UTC"
+    },
+    "upload_904567f785.jpg": {
+      "filename": "upload_904567f785.jpg",
+      "hash": "ce28ead7fbba3c687611688d2e473405d4ccddd384cd3f74b69a2e90e8088ecd",
+      "predicted_label": "REAL",
+      "user_agrees": false,
+      "final_verified_label": "LIKELY DEEPFAKE",
+      "timestamp": "2026-09-11 19:16:55 UTC"
+    },
+    "f4c7d76fdca86a2dc6ea196f1b477bedf2320eead57f18cd610e9d0c54d913f5": {
+      "filename": "upload_7366b244ca.png",
+      "hash": "f4c7d76fdca86a2dc6ea196f1b477bedf2320eead57f18cd610e9d0c54d913f5",
+      "predicted_label": "REAL",
+      "user_agrees": false,
+      "final_verified_label": "LIKELY DEEPFAKE",
+      "timestamp": "2026-09-11 19:19:24 UTC"
+    },
+    "upload_7366b244ca.png": {
+      "filename": "upload_7366b244ca.png",
+      "hash": "f4c7d76fdca86a2dc6ea196f1b477bedf2320eead57f18cd610e9d0c54d913f5",
+      "predicted_label": "REAL",
+      "user_agrees": false,
+      "final_verified_label": "LIKELY DEEPFAKE",
+      "timestamp": "2026-09-11 19:19:24 UTC"
+    },
+    "31ffc650ba3523ea7f29ddcee3a5f5f8e73f4d197ad44578b0aeba99e176f3d6": {
+      "filename": "sample_4d7c7f3794_Obama_fake.jpg",
+      "hash": "31ffc650ba3523ea7f29ddcee3a5f5f8e73f4d197ad44578b0aeba99e176f3d6",
+      "predicted_label": "LIKELY DEEPFAKE (SYNTHETIC / MANIPULATED)",
+      "user_agrees": true,
+      "final_verified_label": "LIKELY DEEPFAKE (SYNTHETIC / MANIPULATED)",
+      "timestamp": "2026-09-11 19:21:31 UTC"
+    },
+    "sample_4d7c7f3794_Obama_fake.jpg": {
+      "filename": "sample_4d7c7f3794_Obama_fake.jpg",
+      "hash": "31ffc650ba3523ea7f29ddcee3a5f5f8e73f4d197ad44578b0aeba99e176f3d6",
+      "predicted_label": "LIKELY DEEPFAKE (SYNTHETIC / MANIPULATED)",
+      "user_agrees": true,
+      "final_verified_label": "LIKELY DEEPFAKE (SYNTHETIC / MANIPULATED)",
+      "timestamp": "2026-09-11 19:21:31 UTC"
+    },
+    "0403f2b39117c0189c06009ceec0cab3ddacd4394545c830132c3d8423f58140": {
+      "filename": "upload_16697469b1.png",
+      "hash": "0403f2b39117c0189c06009ceec0cab3ddacd4394545c830132c3d8423f58140",
+      "predicted_label": "LIKELY DEEPFAKE (MORPHED / SPLICED)",
+      "user_agrees": true,
+      "final_verified_label": "LIKELY DEEPFAKE (MORPHED / SPLICED)",
+      "timestamp": "2026-09-11 19:21:56 UTC"
+    },
+    "upload_16697469b1.png": {
+      "filename": "upload_16697469b1.png",
+      "hash": "0403f2b39117c0189c06009ceec0cab3ddacd4394545c830132c3d8423f58140",
+      "predicted_label": "LIKELY DEEPFAKE (MORPHED / SPLICED)",
+      "user_agrees": true,
+      "final_verified_label": "LIKELY DEEPFAKE (MORPHED / SPLICED)",
+      "timestamp": "2026-09-11 19:21:56 UTC"
+    },
+    "upload_452b7ec59d.jpg": {
+      "filename": "upload_452b7ec59d.jpg",
+      "hash": "ce28ead7fbba3c687611688d2e473405d4ccddd384cd3f74b69a2e90e8088ecd",
+      "predicted_label": "LIKELY DEEPFAKE (VERIFIED HUMAN FEEDBACK)",
+      "user_agrees": true,
+      "final_verified_label": "LIKELY DEEPFAKE (VERIFIED HUMAN FEEDBACK)",
+      "timestamp": "2026-09-11 19:31:39 UTC"
+    },
+    "2c8f39be5f2c4a6fb405de6476991f1f58c05970d0a7aacbb26ee0c8c1baa1af": {
+      "filename": "upload_b4e9c2977d.jpg",
+      "hash": "2c8f39be5f2c4a6fb405de6476991f1f58c05970d0a7aacbb26ee0c8c1baa1af",
+      "predicted_label": "LIKELY DEEPFAKE (MORPHED / SPLICED)",
+      "user_agrees": false,
+      "final_verified_label": "REAL",
+      "timestamp": "2026-09-11 19:32:12 UTC"
+    },
+    "upload_b4e9c2977d.jpg": {
+      "filename": "upload_b4e9c2977d.jpg",
+      "hash": "2c8f39be5f2c4a6fb405de6476991f1f58c05970d0a7aacbb26ee0c8c1baa1af",
+      "predicted_label": "LIKELY DEEPFAKE (MORPHED / SPLICED)",
+      "user_agrees": false,
+      "final_verified_label": "REAL",
+      "timestamp": "2026-09-11 19:32:12 UTC"
+    },
+    "5b7729f0a81b7762a44d03bc65fdd6f154d0dd4cc9a0f889bcaaeda806288ded": {
+      "filename": "upload_f0889cf99e.png",
+      "hash": "5b7729f0a81b7762a44d03bc65fdd6f154d0dd4cc9a0f889bcaaeda806288ded",
+      "predicted_label": "REAL",
+      "user_agrees": false,
+      "final_verified_label": "LIKELY DEEPFAKE",
+      "timestamp": "2026-09-11 19:38:18 UTC"
+    },
+    "upload_f0889cf99e.png": {
+      "filename": "upload_f0889cf99e.png",
+      "hash": "5b7729f0a81b7762a44d03bc65fdd6f154d0dd4cc9a0f889bcaaeda806288ded",
+      "predicted_label": "REAL",
+      "user_agrees": false,
+      "final_verified_label": "LIKELY DEEPFAKE",
+      "timestamp": "2026-09-11 19:38:18 UTC"
+    },
+    "3ec7803dcb951720601036242af7627d654092fdf289093e5f0fee11b4b0f028": {
+      "filename": "sample_2d8ca18b3f_Rashmika_Mandanna.jpg",
+      "hash": "3ec7803dcb951720601036242af7627d654092fdf289093e5f0fee11b4b0f028",
+      "predicted_label": "LIKELY DEEPFAKE (SYNTHETIC / MANIPULATED)",
+      "user_agrees": true,
+      "final_verified_label": "LIKELY DEEPFAKE (SYNTHETIC / MANIPULATED)",
+      "timestamp": "2026-09-11 19:46:01 UTC"
+    },
+    "sample_2d8ca18b3f_Rashmika_Mandanna.jpg": {
+      "filename": "sample_2d8ca18b3f_Rashmika_Mandanna.jpg",
+      "hash": "3ec7803dcb951720601036242af7627d654092fdf289093e5f0fee11b4b0f028",
+      "predicted_label": "LIKELY DEEPFAKE (SYNTHETIC / MANIPULATED)",
+      "user_agrees": true,
+      "final_verified_label": "LIKELY DEEPFAKE (SYNTHETIC / MANIPULATED)",
+      "timestamp": "2026-09-11 19:46:01 UTC"
+    },
+    "81944c4558fc7b88ebed59b5562c843426d5d53424d7b8273ed36d0f9e61a887": {
+      "filename": "upload_998e67b08f.png",
+      "hash": "81944c4558fc7b88ebed59b5562c843426d5d53424d7b8273ed36d0f9e61a887",
+      "predicted_label": "LIKELY DEEPFAKE (MORPHED / SPLICED)",
+      "user_agrees": false,
+      "final_verified_label": "REAL",
+      "timestamp": "2026-09-12 07:03:03 UTC"
+    },
+    "upload_998e67b08f.png": {
+      "filename": "upload_998e67b08f.png",
+      "hash": "81944c4558fc7b88ebed59b5562c843426d5d53424d7b8273ed36d0f9e61a887",
+      "predicted_label": "LIKELY DEEPFAKE (MORPHED / SPLICED)",
+      "user_agrees": false,
+      "final_verified_label": "REAL",
+      "timestamp": "2026-09-12 07:03:03 UTC"
+    },
+    "ba1c72263314c6200255964b51ba8cea74bae4c6ff1a7940ce7988a3b862f32b": {
+      "filename": "upload_6589da39bf.webp",
+      "hash": "ba1c72263314c6200255964b51ba8cea74bae4c6ff1a7940ce7988a3b862f32b",
+      "predicted_label": "REAL (VERIFIED HUMAN FEEDBACK)",
+      "user_agrees": true,
+      "final_verified_label": "REAL (VERIFIED HUMAN FEEDBACK)",
+      "timestamp": "2026-09-12 10:16:18 UTC"
+    },
+    "upload_05de605ee3.webp": {
+      "filename": "upload_05de605ee3.webp",
+      "hash": "ba1c72263314c6200255964b51ba8cea74bae4c6ff1a7940ce7988a3b862f32b",
+      "predicted_label": "REAL",
+      "user_agrees": true,
+      "final_verified_label": "REAL",
+      "timestamp": "2026-09-12 07:07:54 UTC"
+    },
+    "upload_6589da39bf.webp": {
+      "filename": "upload_6589da39bf.webp",
+      "hash": "ba1c72263314c6200255964b51ba8cea74bae4c6ff1a7940ce7988a3b862f32b",
+      "predicted_label": "REAL (VERIFIED HUMAN FEEDBACK)",
+      "user_agrees": true,
+      "final_verified_label": "REAL (VERIFIED HUMAN FEEDBACK)",
+      "timestamp": "2026-09-12 10:16:18 UTC"
+    }
+  },
+  "summary": {
+    "total_feedback": 11,
+    "correct_predictions": 6,
+    "user_overrides": 5
+  }
+}
